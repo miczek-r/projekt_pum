@@ -1,3 +1,5 @@
+import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:projekt_pum/config/routes/routes.dart';
@@ -7,6 +9,8 @@ import 'package:projekt_pum/utils/helpers/locator.dart';
 import 'package:projekt_pum/utils/services/application_localization.service.dart';
 import 'package:projekt_pum/utils/services/environment.service.dart';
 import 'package:projekt_pum/utils/services/local_storage.service.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 Future<void> main() async {
   const String environment =
@@ -14,6 +18,13 @@ Future<void> main() async {
   Environment().initConfig(environment);
   WidgetsFlutterBinding.ensureInitialized();
   await setupLocator();
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+await FirebaseAppCheck.instance.activate(
+    webRecaptchaSiteKey: 'recaptcha-v3-site-key',
+  );
   runApp(const MyApp());
 }
 
