@@ -8,27 +8,17 @@
             "name": "debug",
             "request": "launch",
             "type": "dart",
-            "args": [
-                "--flavor",
-                "appCenter"
-            ]
         },{
             "name": "staging",
             "request": "launch",
             "type": "dart",
             "args": [
-                "--flavor",
-                "appCenter",
                 "--dart-define=ENVIRONMENT=STAGING",
             ]
         }, {
             "name": "testing",
             "request": "launch",
             "type": "dart",
-            "args": [
-                "--flavor",
-                "appCenter"
-            ],
             "flutterMode": "profile"
         },{
             "name": "ios",

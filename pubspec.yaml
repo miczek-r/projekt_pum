@@ -32,12 +32,6 @@ dependencies:
   flutter_localizations: 
     sdk: flutter  
 
-  flutter_appcenter_bundle:
-    git:
-      url: https://github.com/kattalo/flutter_appcenter_bundle.git
-      ref: master
-      path: flutter_appcenter_bundle/
-
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

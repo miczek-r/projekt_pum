@@ -3,7 +3,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:projekt_pum/config/routes/routes.dart';
 import 'package:projekt_pum/config/themes/dark_theme.dart';
 import 'package:projekt_pum/config/themes/light_theme.dart';
-import 'package:projekt_pum/utils/helpers/app_center.dart';
 import 'package:projekt_pum/utils/helpers/locator.dart';
 import 'package:projekt_pum/utils/services/application_localization.service.dart';
 import 'package:projekt_pum/utils/services/environment.service.dart';
@@ -14,7 +13,6 @@ Future<void> main() async {
       String.fromEnvironment('ENVIRONMENT', defaultValue: Environment.DEV);
   Environment().initConfig(environment);
   WidgetsFlutterBinding.ensureInitialized();
-  await configureAppCenter();
   await setupLocator();
   runApp(const MyApp());
 }

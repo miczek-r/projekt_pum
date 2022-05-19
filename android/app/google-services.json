@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "544468561370",
+    "project_id": "projekt-pum",
+    "storage_bucket": "projekt-pum.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:544468561370:android:44424465dec562f8bba4e3",
+        "android_client_info": {
+          "package_name": "com.miczek.projektpum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "544468561370-k1o5qu3q338vpt2b9cer0l4g6bijga54.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp2DcHoq1UHIl_W0r1BAYbuFVR7K5YJyI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "544468561370-k1o5qu3q338vpt2b9cer0l4g6bijga54.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "544468561370-bj70ldqdvk72vpu1r1ek47giafcrimpd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.miczek.projektpum"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

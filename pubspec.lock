@@ -76,15 +76,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_appcenter_bundle:
-    dependency: "direct main"
-    description:
-      path: flutter_appcenter_bundle
-      ref: master
-      resolved-ref: "16f2a7643b1ce6ca9ddf1a652b1cbb4f8f6440ed"
-      url: "https://github.com/kattalo/flutter_appcenter_bundle.git"
-    source: git
-    version: "3.3.2"
   flutter_lints:
     dependency: "direct dev"
     description:
