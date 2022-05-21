@@ -3,7 +3,7 @@
 import 'package:projekt_pum/config/environment/base_config.dart';
 import 'package:projekt_pum/config/environment/dev_config.dart';
 import 'package:projekt_pum/config/environment/staging_config.dart';
-import 'package:projekt_pum/config/production_config.dart';
+import 'package:projekt_pum/config/environment/production_config.dart';
 
 class Environment {
   static final Environment _singleton = Environment._internal();

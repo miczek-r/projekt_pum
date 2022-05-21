@@ -11,7 +11,6 @@ class MainController extends State<Main> {
   int selectedIndex = 1;
   bool isLocked = false;
   bool isReversing = false;
-  late GlobalKey<ScaffoldState> scaffoldKey;
   final List<Widget> widgetOptions = <Widget>[
     TrainingPage(),
     HomePage(),
