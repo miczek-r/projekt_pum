@@ -14,6 +14,7 @@ class HomePageView extends StatefulWidgetView<HomePage, HomePageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue,
       body: SafeArea(
         child: Stack(
           children: [
@@ -23,9 +24,11 @@ class HomePageView extends StatefulWidgetView<HomePage, HomePageController> {
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Row(
                     children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 40,
+                      InkWell(
+                        child: CircleAvatar(
+                          backgroundColor: Colors.white,
+                          radius: 40,
+                        ),
                       ),
                       SizedBox(
                         width: 10,
@@ -33,7 +36,10 @@ class HomePageView extends StatefulWidgetView<HomePage, HomePageController> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('FirstName',
+                          Text(
+                              controller.currentUser?.displayName ??
+                                  controller.currentUser?.phoneNumber ??
+                                  "",
                               style: TextStyle(
                                 color: Colors.white,
                               )),

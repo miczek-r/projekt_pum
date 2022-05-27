@@ -12,6 +12,7 @@ class MainView extends StatefulWidgetView<Main, MainController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue,
       body: Stack(
         children: [
           PageTransitionSwitcher(

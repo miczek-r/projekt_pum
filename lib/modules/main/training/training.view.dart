@@ -13,6 +13,7 @@ class TrainingPageView
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue,
       body: SafeArea(
         child: Stack(
           children: [
@@ -93,9 +94,13 @@ class TrainingRow extends StatelessWidget {
                     clipBehavior: Clip.none,
                     borderRadius: BorderRadius.circular(50),
                     elevation: 10,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 50,
+                    child: InkWell(
+                      onTap: () => Navigator.of(context)
+                          .pushNamed("/games/reaction/view"),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 50,
+                      ),
                     ),
                   ),
                   Text('Game 1')
