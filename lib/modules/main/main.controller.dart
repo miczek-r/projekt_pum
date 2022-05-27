@@ -9,7 +9,6 @@ class MainController extends State<Main> {
   MainController();
 
   int selectedIndex = 1;
-  bool isLocked = false;
   bool isReversing = false;
   final List<Widget> widgetOptions = <Widget>[
     TrainingPage(),
