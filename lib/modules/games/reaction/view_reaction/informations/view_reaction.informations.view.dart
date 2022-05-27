@@ -8,6 +8,7 @@ import 'package:projekt_pum/modules/games/reaction/view_reaction/informations/vi
 import 'package:projekt_pum/modules/games/reaction/view_reaction/informations/view_reaction.informations.dart';
 import 'package:projekt_pum/modules/games/reaction/view_reaction/main/view_reaction.main.controller.dart';
 import 'package:projekt_pum/modules/games/reaction/view_reaction/main/view_reaction.main.dart';
+import 'package:projekt_pum/utils/ui/glass_button/glass_button.dart';
 import 'package:widget_view/widget_view.dart';
 
 class ViewReactionInformationsPageView extends StatefulWidgetView<
@@ -66,9 +67,9 @@ class ViewReactionInformationsPageView extends StatefulWidgetView<
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              component2(
+                              GlassButton(
                                   "gramy", () => controller.goToNextPage()),
-                              component2(
+                              GlassButton(
                                 "Powrót",
                                 () => Navigator.of(context).pop(),
                               ),

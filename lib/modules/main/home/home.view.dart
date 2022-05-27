@@ -14,6 +14,7 @@ class HomePageView extends StatefulWidgetView<HomePage, HomePageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue,
       body: SafeArea(
         child: Stack(
           children: [

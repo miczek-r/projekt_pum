@@ -8,6 +8,7 @@ import 'package:projekt_pum/modules/games/reaction/view_reaction/main/view_react
 import 'package:projekt_pum/modules/games/reaction/view_reaction/main/view_reaction.main.dart';
 import 'package:projekt_pum/modules/games/reaction/view_reaction/results/view_reaction.results.controller.dart';
 import 'package:projekt_pum/modules/games/reaction/view_reaction/results/view_reaction.results.dart';
+import 'package:projekt_pum/utils/ui/glass_button/glass_button.dart';
 import 'package:widget_view/widget_view.dart';
 
 class ViewReactionResultsPageView extends StatefulWidgetView<
@@ -62,14 +63,14 @@ class ViewReactionResultsPageView extends StatefulWidgetView<
                                 SizedBox(
                                   height: 150,
                                 ),
-                                component2(
+                                GlassButton(
                                   "Spróbuj ponownie",
                                   () => controller.restartFunction(),
                                 ),
                                 SizedBox(
                                   height: 20,
                                 ),
-                                component2(
+                                GlassButton(
                                   "Powrót",
                                   () => Navigator.of(context).pop(),
                                 ),

@@ -8,11 +8,12 @@ enum Status { Waiting, Error }
 class VerifyCodePageController extends State<VerifyCodePage> {
   VerifyCodePageController(this.phoneNumber);
 
-  final phoneNumber;
-  var verificationId;
+  String verificationCode = "000000";
+  final String phoneNumber;
+  String? verificationId;
   var status = Status.Waiting;
   var textEditingController = TextEditingController();
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   void initState() {
@@ -32,15 +33,16 @@ class VerifyCodePageController extends State<VerifyCodePage> {
     );
   }
 
-  Future sendCodeToFirebase({String? code}) async {
+  Future sendCodeToFirebase() async {
     if (verificationId != null) {
       var credential = PhoneAuthProvider.credential(
-          verificationId: verificationId, smsCode: code!);
+          verificationId: verificationId!, smsCode: verificationCode);
 
       await _auth
           .signInWithCredential(credential)
           .then((value) {
-            Navigator.pushNamed(context, '/r');
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil('/r', (Route<dynamic> route) => false);
           })
           .whenComplete(() {})
           .onError((error, stackTrace) {
