@@ -51,7 +51,17 @@ class HomePageView extends StatefulWidgetView<HomePage, HomePageController> {
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold))
                         ],
-                      )
+                      ),
+                      Expanded(
+                        child: Row(),
+                      ),
+                      IconButton(
+                          onPressed: () =>
+                              Navigator.of(context).pushNamed("/settings"),
+                          icon: FaIcon(
+                            FontAwesomeIcons.cog,
+                            color: Colors.white,
+                          )),
                     ],
                   ),
                 )),

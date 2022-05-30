@@ -1,4 +1,10 @@
 {
   "phone_number": "Numer Telefonu",
-  "login": "Zaloguj"
+  "login": "Zaloguj",
+  "settings": "Ustawienia",
+  "pl": "Polski",
+  "en": "Angielski",
+  "system": "Systemowy",
+  "dark": "Ciemny",
+  "light": "Jasny"
 }

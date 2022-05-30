@@ -31,6 +31,11 @@ Future<void> main() async {
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  static void update(BuildContext context) async {
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state!.update();
+  }
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -48,6 +53,10 @@ class _MyAppState extends State<MyApp> {
     Locale('pl', 'PL')
   ];
 
+  void update() {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -61,8 +70,8 @@ class _MyAppState extends State<MyApp> {
       routes: customRoutes,
       theme: lightTheme,
       darkTheme: darkTheme,
-      themeMode: (locator<LocalStorageService>().contains('darkMode'))
-          ? locator<LocalStorageService>().get('darkTheme')
+      themeMode: (locator<LocalStorageService>().contains('theme'))
+          ? locator<LocalStorageService>().get('theme') == 'dark'
               ? ThemeMode.dark
               : ThemeMode.light
           : ThemeMode.system,

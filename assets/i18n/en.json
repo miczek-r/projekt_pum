@@ -1,4 +1,10 @@
 {
   "phone_number": "Phone Number",
-  "login": "Login"
+  "login": "Login",
+  "settings": "Settings",
+  "pl": "Polish",
+  "en": "English",
+  "system": "System",
+  "dark": "Dark",
+  "light": "Light"
 }

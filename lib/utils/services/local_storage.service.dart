@@ -14,6 +14,10 @@ class LocalStorageService {
     return _preferences!.containsKey(key);
   }
 
+  void remove(String key) {
+    if (contains(key)) _preferences!.remove(key);
+  }
+
   dynamic get(String key) {
     var value = _preferences!.get(key);
     return value;
