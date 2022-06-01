@@ -5,8 +5,8 @@ import 'package:projekt_pum/modules/games/reaction/view_reaction/main/view_react
 import 'package:projekt_pum/modules/main/main.dart';
 
 Map<String, WidgetBuilder> customRoutes = {
-  "/r": (context) => Main(),
-  "/": (context) => LoginPage(),
+  "/home": (context) => Main(),
+  "/login": (context) => LoginPage(),
   "/settings": (context) => SettingsPage(),
   "/games/reaction/view": ((context) => ViewReactionMainPage())
 };
