@@ -16,7 +16,7 @@ class ViewReactionGamePageView extends StatefulWidgetView<ViewReactionGamePage,
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).canvasColor,
         body: SafeArea(
           child: Column(
             children: [
@@ -31,6 +31,11 @@ class ViewReactionGamePageView extends StatefulWidgetView<ViewReactionGamePage,
                         AnimatedSmoothIndicator(
                           activeIndex: controller.currentAttempt,
                           count: 5,
+                          effect: WormEffect(
+                              activeDotColor: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .color!),
                         )
                       ],
                     )
@@ -40,10 +45,11 @@ class ViewReactionGamePageView extends StatefulWidgetView<ViewReactionGamePage,
               Expanded(
                 flex: 2,
                 child: Material(
+                  clipBehavior: Clip.antiAlias,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(50)),
                   color: controller.backgroundColor,
                   child: InkWell(
-                    onTap: () => controller.gameControll(),
+                    onTapDown: (details) => controller.gameControll(),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,

@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:projekt_pum/modules/main/training/training.controller.dart';
 import 'package:projekt_pum/modules/main/training/training.dart';
+import 'package:projekt_pum/utils/ui/glass_container/glass_container.dart';
 import 'package:widget_view/widget_view.dart';
 
 class TrainingPageView
@@ -13,7 +14,6 @@ class TrainingPageView
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
       body: SafeArea(
         child: Stack(
           children: [
@@ -32,25 +32,12 @@ class TrainingPageView
                   SizedBox(
                     height: 140,
                   ),
-                  ClipRRect(
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            gradient: RadialGradient(
-                              colors: [Color(0xDDffffff), Color(0x88f0fcfd)],
-                              center: Alignment(-1, 1),
-                              radius: 3.8,
-                            ),
-                            borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(50))),
-                        child: Padding(
-                          padding: const EdgeInsets.all(25.0),
-                          child: Column(children: [
-                            for (int i = 0; i < 5; i++) TrainingRow(),
-                          ]),
-                        ),
-                      ),
+                  GlassContainer(
+                    child: Padding(
+                      padding: const EdgeInsets.all(25.0),
+                      child: Column(children: [
+                        for (int i = 0; i < 5; i++) TrainingRow(),
+                      ]),
                     ),
                   ),
                 ],

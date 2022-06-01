@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:projekt_pum/modules/main/home/home.controller.dart';
 import 'package:projekt_pum/modules/main/home/home.dart';
+import 'package:projekt_pum/utils/ui/glass_container/glass_container.dart';
 import 'package:widget_view/widget_view.dart';
 
 class HomePageView extends StatefulWidgetView<HomePage, HomePageController> {
@@ -14,7 +15,6 @@ class HomePageView extends StatefulWidgetView<HomePage, HomePageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
       body: SafeArea(
         child: Stack(
           children: [
@@ -70,24 +70,7 @@ class HomePageView extends StatefulWidgetView<HomePage, HomePageController> {
                 SizedBox(
                   height: 140,
                 ),
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        gradient: RadialGradient(
-                          colors: [Color(0xDDffffff), Color(0x88f0fcfd)],
-                          center: Alignment(-1, 1),
-                          radius: 3.8,
-                        ),
-                        borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(50))),
-                    child: Padding(
-                      padding: const EdgeInsets.all(25.0),
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [Text('Test')]),
-                    ),
-                  ),
-                ),
+                Expanded(child: GlassContainer()),
               ],
             ),
           ],

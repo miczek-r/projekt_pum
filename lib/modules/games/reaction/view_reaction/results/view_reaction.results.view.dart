@@ -21,7 +21,7 @@ class ViewReactionResultsPageView extends StatefulWidgetView<
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).canvasColor,
         body: SafeArea(
           child: Column(
             children: [
@@ -41,7 +41,7 @@ class ViewReactionResultsPageView extends StatefulWidgetView<
                 flex: 10,
                 child: Material(
                   borderRadius: BorderRadius.vertical(top: Radius.circular(50)),
-                  color: Colors.blue,
+                  color: Theme.of(context).scaffoldBackgroundColor,
                   child: Column(
                     children: [
                       Expanded(

@@ -50,6 +50,7 @@ dependencies:
   tuple: ^2.0.0
   firebase_auth: ^3.3.18
   smooth_page_indicator: ^1.0.0+2
+  package_info_plus: ^1.4.2
 
 dev_dependencies:
   flutter_test:
@@ -78,4 +79,17 @@ flutter:
   # Language translation files
     - assets/i18n/en.json
     - assets/i18n/pl.json
- 
+
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Nunito-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Nunito-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Nunito-Bold.ttf
+          weight: 500
+        - asset: assets/fonts/Nunito-ExtraBold.ttf
+          weight: 600

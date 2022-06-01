@@ -12,7 +12,6 @@ class MainView extends StatefulWidgetView<Main, MainController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
       body: Stack(
         children: [
           PageTransitionSwitcher(
@@ -66,7 +65,7 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     return Material(
       borderRadius: const BorderRadius.vertical(top: const Radius.circular(50)),
-      color: const Color(0xFF1877f2),
+      color: Theme.of(context).scaffoldBackgroundColor,
       clipBehavior: Clip.antiAlias,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -79,21 +78,20 @@ class _NavBarState extends State<NavBar> {
               splashRadius: MediaQuery.of(context).size.width / 4,
               icon: const FaIcon(FontAwesomeIcons.brain)),
           Material(
+            color: Theme.of(context).colorScheme.secondary,
             elevation: 10,
             borderRadius: BorderRadius.circular(50),
             clipBehavior: Clip.antiAlias,
             child: SizedBox(
               height: 60,
               width: MediaQuery.of(context).size.width / 3,
-              child: Material(
-                child: IconButton(
-                    iconSize: 30,
-                    color: const Color(0xFF1877f2),
-                    splashRadius: MediaQuery.of(context).size.width / 6,
-                    splashColor: const Color(0xFF1877f2),
-                    onPressed: () => widget.onTap(1),
-                    icon: const FaIcon(FontAwesomeIcons.house)),
-              ),
+              child: IconButton(
+                  iconSize: 30,
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  splashRadius: MediaQuery.of(context).size.width / 6,
+                  splashColor: Theme.of(context).scaffoldBackgroundColor,
+                  onPressed: () => widget.onTap(1),
+                  icon: const FaIcon(FontAwesomeIcons.house)),
             ),
           ),
           IconButton(

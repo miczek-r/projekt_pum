@@ -7,8 +7,10 @@ import 'package:projekt_pum/modules/games/reaction/view_reaction/main/view_react
 import 'package:projekt_pum/modules/games/reaction/view_reaction/main/view_reaction.main.dart';
 import 'package:widget_view/widget_view.dart';
 
-class ViewReactionMainPageView extends StatefulWidgetView<ViewReactionMainPage, ViewReactionMainPageController> {
-  const ViewReactionMainPageView(ViewReactionMainPageController controller, {Key? key})
+class ViewReactionMainPageView extends StatefulWidgetView<ViewReactionMainPage,
+    ViewReactionMainPageController> {
+  const ViewReactionMainPageView(ViewReactionMainPageController controller,
+      {Key? key})
       : super(controller, key: key);
 
   @override
