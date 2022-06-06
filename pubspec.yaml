@@ -78,4 +78,5 @@ flutter:
   # Language translation files
     - assets/i18n/en.json
     - assets/i18n/pl.json
+    - assets/images/
  

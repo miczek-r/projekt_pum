@@ -115,12 +115,16 @@ class TrainingRow extends StatelessWidget {
                     clipBehavior: Clip.none,
                     borderRadius: BorderRadius.circular(50),
                     elevation: 10,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 50,
+                    child: InkWell(
+                      onTap: () => Navigator.of(context)
+                          .pushNamed("/games/memory/card_match"),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 50,
+                      ),
                     ),
                   ),
-                  Text('Game 1')
+                  Text('Game 2')
                 ],
               ),
               SizedBox(
