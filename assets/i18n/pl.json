@@ -8,5 +8,13 @@
   "en": "Angielski",
   "system": "Systemowy",
   "dark": "Ciemny",
-  "light": "Jasny"
+  "light": "Jasny",
+  "reaction": "Reakcja",
+  "concentration": "Koncentracja",
+  "mathematcis": "Matematyka",
+  "word": "Słownictwo",
+  "memory": "Pamięć",
+  "reaction_view": "Reakcja na zmiane koloru",
+  "reaction_sound": "Reakcja na dźwięk",
+  "word_char_shuffle": "Ułóż słowo"
 }

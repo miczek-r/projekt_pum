@@ -51,6 +51,7 @@ dependencies:
   firebase_auth: ^3.3.18
   smooth_page_indicator: ^1.0.0+2
   package_info_plus: ^1.4.2
+  audioplayers: ^0.20.1
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +80,9 @@ flutter:
   # Language translation files
     - assets/i18n/en.json
     - assets/i18n/pl.json
+    - assets/sounds/honk.wav
+    - assets/sounds/honk.mp3
+    - assets/data/english_words.txt
 
   fonts:
     - family: Nunito

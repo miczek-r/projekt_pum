@@ -8,5 +8,13 @@
   "en": "English",
   "system": "System",
   "dark": "Dark",
-  "light": "Light"
+  "light": "Light",
+  "reaction": "Reaction",
+  "concentration": "Concentration",
+  "mathematics": "Mathematics",
+  "word": "Word",
+  "memory": "Memory",
+  "reaction_view": "Color change reaction",
+  "reaction_sound": "Sound signal reaction",
+  "word_char_shuffle": "Character shuffle"
 }
