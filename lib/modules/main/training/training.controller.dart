@@ -7,7 +7,7 @@ class TrainingPageController extends State<TrainingPage> {
 
   final Map<String, Set<String>> games = {
     "reaction": {"view", "sound"},
-    "memory": {},
+    "memory": {"card_match"},
     "word": {"char_shuffle"},
     "concentration": {},
     "mathematics": {}

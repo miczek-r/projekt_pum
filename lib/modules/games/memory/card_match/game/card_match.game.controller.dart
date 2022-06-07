@@ -4,8 +4,9 @@ import 'dart:math';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:projekt_pum/modules/games/memory/card_match/card_match.game.dart';
-import 'package:projekt_pum/modules/games/memory/card_match/card_match.game.view.dart';
+
+import 'card_match.game.dart';
+import 'card_match.game.view.dart';
 
 enum GameState { Stop, Waiting, Counting }
 
@@ -16,7 +17,8 @@ String selectedImageAssetPath = "";
 int selectedTileIndex = 0;
 
 class CardMatchGamePageController extends State<CardMatchGamePage> {
-  CardMatchGamePageController();
+  final Function goToNextPage;
+  CardMatchGamePageController(this.goToNextPage);
 
   @override
   void initState() {
