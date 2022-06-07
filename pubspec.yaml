@@ -83,6 +83,7 @@ flutter:
     - assets/sounds/honk.wav
     - assets/sounds/honk.mp3
     - assets/data/english_words.txt
+    - assets/images/
 
   fonts:
     - family: Nunito
@@ -97,3 +98,4 @@ flutter:
           weight: 500
         - asset: assets/fonts/Nunito-ExtraBold.ttf
           weight: 600
+ 
