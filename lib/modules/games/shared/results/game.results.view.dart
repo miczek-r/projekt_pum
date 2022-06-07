@@ -1,20 +1,13 @@
-import 'dart:ui';
-
-import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:projekt_pum/core/login/login.view.dart';
-import 'package:projekt_pum/modules/games/reaction/view_reaction/main/view_reaction.main.controller.dart';
-import 'package:projekt_pum/modules/games/reaction/view_reaction/main/view_reaction.main.dart';
-import 'package:projekt_pum/modules/games/reaction/view_reaction/results/view_reaction.results.controller.dart';
-import 'package:projekt_pum/modules/games/reaction/view_reaction/results/view_reaction.results.dart';
+import 'package:projekt_pum/modules/games/shared/results/game.results.controller.dart';
+import 'package:projekt_pum/modules/games/shared/results/game.results.dart';
 import 'package:projekt_pum/utils/ui/glass_button/glass_button.dart';
 import 'package:widget_view/widget_view.dart';
 
-class ViewReactionResultsPageView extends StatefulWidgetView<
-    ViewReactionResultsPage, ViewReactionResultsPageController> {
-  const ViewReactionResultsPageView(
-      ViewReactionResultsPageController controller,
+class GameResultsPageView extends StatefulWidgetView<
+    GameResultsPage, GameResultsPageController> {
+  const GameResultsPageView(
+      GameResultsPageController controller,
       {Key? key})
       : super(controller, key: key);
 
