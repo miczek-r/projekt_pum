@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:projekt_pum/modules/games/reaction/sound_reaction/game/sound_reaction.game.dart';
 import 'package:projekt_pum/modules/games/reaction/sound_reaction/game/sound_reaction.game.view.dart';
+import 'package:projekt_pum/utils/services/application_localization.service.dart';
 
 import 'char_shuffle.game.dart';
 import 'char_shuffle.game.view.dart';
@@ -28,14 +29,16 @@ class CharShuffleGamePageController extends State<CharShuffleGamePage> {
   @override
   void initState() {
     super.initState();
+    Future.delayed(Duration.zero, () {
     loadData().then(
       (value) => {generateAndShuffleWord()},
     );
+    });
   }
 
   Future loadData() async {
     String wordsInOneString =
-        await rootBundle.loadString("assets/data/english_words.txt");
+        await rootBundle.loadString("assets/data/${ApplicationLocalizations.of(context)!.locale.languageCode}_words.txt");
     allWords = wordsInOneString.split("\n");
     startTimer();
   }
