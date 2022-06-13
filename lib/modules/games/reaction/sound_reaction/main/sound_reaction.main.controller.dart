@@ -17,7 +17,7 @@ class SoundReactionMainPageController extends State<SoundReactionMainPage> {
   void initState() {
     super.initState();
     widgetOptions = <Widget>[
-      GameInformationsPage(goToNextPage: () => nextPage()),
+      GameInformationsPage(goToNextPage: () => nextPage(),gameName: "reaction_sound"),
       SoundReactionGamePage(
           goToNextPage: (int result) => nextPage(result: result))
     ];

@@ -18,7 +18,7 @@ class VibrationReactionMainPageController
   void initState() {
     super.initState();
     widgetOptions = <Widget>[
-      GameInformationsPage(goToNextPage: () => nextPage()),
+      GameInformationsPage(goToNextPage: () => nextPage(),gameName: "reaction_vibration"),
       VibrationReactionGamePage(
           goToNextPage: (int result) => nextPage(result: result))
     ];

@@ -18,7 +18,7 @@ class CardMatchMainPageController extends State<CardMatchMainPage> {
   void initState() {
     super.initState();
     widgetOptions = <Widget>[
-      GameInformationsPage(goToNextPage: () => nextPage()),
+      GameInformationsPage(goToNextPage: () => nextPage(),gameName: "memory_card_match"),
       CardMatchGamePage(
           goToNextPage: (int result) => nextPage(result: result))
     ];

@@ -4,8 +4,9 @@ import 'package:projekt_pum/modules/games/shared/informations/game.informations.
 
 class GameInformationsPageController
     extends State<GameInformationsPage> {
+      final String gameName;
   final VoidCallback goToNextPage;
-  GameInformationsPageController(this.goToNextPage);
+  GameInformationsPageController(this.goToNextPage, this.gameName);
 
   @override
   Widget build(BuildContext context) => GameInformationsPageView(this);

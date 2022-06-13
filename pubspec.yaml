@@ -87,7 +87,8 @@ flutter:
     - assets/i18n/pl.json
     - assets/sounds/honk.wav
     - assets/sounds/honk.mp3
-    - assets/data/english_words.txt
+    - assets/data/en_words.txt
+    - assets/data/pl_words.txt
     - assets/images/
 
   fonts:

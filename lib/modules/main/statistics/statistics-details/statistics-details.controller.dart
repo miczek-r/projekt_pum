@@ -144,7 +144,7 @@ class StatisticsDetailsPageController extends State<StatisticsDetailsPage> {
         gridData: FlGridData(
           show: true,
           drawVerticalLine: true,
-          horizontalInterval: 1,
+          horizontalInterval: maxValue/5000>1?1000:maxValue/1000>1?200:maxValue/500>1?100:maxValue/100>1?20:maxValue/50>1?10:2,
           verticalInterval: 1,
           getDrawingHorizontalLine: (value) {
             return FlLine(

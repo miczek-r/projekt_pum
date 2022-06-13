@@ -1,10 +1,12 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:projekt_pum/modules/main/training/training.controller.dart';
 import 'package:projekt_pum/modules/main/training/training.dart';
 import 'package:projekt_pum/utils/services/application_localization.service.dart';
 import 'package:projekt_pum/utils/ui/glass_container/glass_container.dart';
+import 'package:tuple/tuple.dart';
 import 'package:widget_view/widget_view.dart';
 
 class TrainingPageView
@@ -63,7 +65,7 @@ class TrainingPageView
 }
 
 class TrainingRow extends StatelessWidget {
-  final MapEntry<String, Set<String>> category;
+  final MapEntry<String, Set<Tuple2<String,IconData>>> category;
 
   const TrainingRow(this.category, {Key? key}) : super(key: key);
 
@@ -86,7 +88,7 @@ class TrainingRow extends StatelessWidget {
               ),
               ...category.value
                   .map(
-                    (gameName) => Row(
+                    (gameTuple) => Row(
                       children: [
                         Column(
                           children: [
@@ -96,15 +98,16 @@ class TrainingRow extends StatelessWidget {
                               elevation: 10,
                               child: InkWell(
                                 onTap: () => Navigator.of(context).pushNamed(
-                                    "/games/${category.key}/$gameName"),
+                                    "/games/${category.key}/${gameTuple.item1}"),
                                 child: CircleAvatar(
                                   backgroundColor: Colors.white,
                                   radius: 50,
+                                  child:FaIcon(gameTuple.item2)
                                 ),
                               ),
                             ),
                             Text(ApplicationLocalizations.of(context)!
-                                .translate("${category.key}_$gameName"))
+                                .translate("${category.key}_${gameTuple.item1}"))
                           ],
                         ),
                         SizedBox(

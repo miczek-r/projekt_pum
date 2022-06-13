@@ -29,7 +29,7 @@ class HomePageController extends State<HomePage> {
   final categories = {
     0: "reaction",
     1: "concentration",
-    2: "mathematics",
+    2: "math",
     3: "word",
     4: "memory"
   };
@@ -37,7 +37,7 @@ class HomePageController extends State<HomePage> {
   Map<String, double> results = {
     "reaction": 1,
     "concentration": 1,
-    "mathematics": 1,
+    "math": 1,
     "word": 1,
     "memory": 1
   };
@@ -66,6 +66,12 @@ class HomePageController extends State<HomePage> {
     }).toList();
   }
 
+  logout(){
+    FirebaseAuth.instance.signOut();
+  }
+
+  //781573995
+
   List<RawDataSet> rawDataSets() {
     return [
       RawDataSet(
@@ -76,7 +82,7 @@ class HomePageController extends State<HomePage> {
       RawDataSet(
         title: 'Hidden',
         color: Colors.transparent,
-        values: [1100.0, 0, 0, 0, 0],
+        values: [1100.0, 1.0, 1.0, 1.0, 1.0],
       ),
     ];
   }

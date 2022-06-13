@@ -17,7 +17,7 @@ class ViewReactionMainPageController extends State<ViewReactionMainPage> {
   void initState() {
     super.initState();
     widgetOptions = <Widget>[
-      GameInformationsPage(goToNextPage: () => nextPage()),
+      GameInformationsPage(goToNextPage: () => nextPage(),gameName: "reaction_view"),
       ViewReactionGamePage(
           goToNextPage: (int result) => nextPage(result: result))
     ];
