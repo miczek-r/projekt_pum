@@ -1,4 +1,23 @@
 {
   "phone_number": "Numer Telefonu",
-  "login": "Zaloguj"
+  "login": "Zaloguj",
+  "settings": "Ustawienia",
+  "language": "Język",
+  "theme": "Motyw",
+  "pl": "Polski",
+  "en": "Angielski",
+  "system": "Systemowy",
+  "dark": "Ciemny",
+  "light": "Jasny",
+  "reaction": "Reakcja",
+  "concentration": "Koncentracja",
+  "mathematics": "Matematyka",
+  "word": "Słownictwo",
+  "memory": "Pamięć",
+  "reaction_view": "Reakcja na zmiane koloru",
+  "reaction_sound": "Reakcja na dźwięk",
+  "reaction_vibration": "Reakcja na wibracje",
+  "reaction_aim_lab": "Test celności",
+  "memory_card_match": "Powiąż karty",
+  "word_char_shuffle": "Ułóż słowo"
 }

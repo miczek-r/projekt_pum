@@ -18,7 +18,6 @@ class VerifyCodePageView
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.secondary,
       body: Stack(
         children: [
           BubbleBackground(size: MediaQuery.of(context).size),

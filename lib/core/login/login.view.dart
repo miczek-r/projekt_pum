@@ -16,7 +16,6 @@ class LoginPageView extends StatefulWidgetView<LoginPage, LoginPageController> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.secondary,
       body: SizedBox(
         height: size.height,
         child: Stack(
@@ -28,10 +27,9 @@ class LoginPageView extends StatefulWidgetView<LoginPage, LoginPageController> {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(top: size.height * .1),
-                    child: Text(
+                    child: const Text(
                       'Projekt PUM',
                       style: TextStyle(
-                        color: Colors.white.withOpacity(.7),
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1,

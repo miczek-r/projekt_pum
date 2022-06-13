@@ -1,4 +1,23 @@
 {
   "phone_number": "Phone Number",
-  "login": "Login"
+  "login": "Login",
+  "settings": "Settings",
+  "language": "Language",
+  "theme": "Theme",
+  "pl": "Polish",
+  "en": "English",
+  "system": "System",
+  "dark": "Dark",
+  "light": "Light",
+  "reaction": "Reaction",
+  "concentration": "Concentration",
+  "mathematics": "Mathematics",
+  "word": "Word",
+  "memory": "Memory",
+  "reaction_view": "Color change reaction",
+  "reaction_sound": "Sound signal reaction",
+  "reaction_vibration": "Vibration reaction",
+  "reaction_aim_lab": "Aim test",
+  "memory_card_match": "Card match",
+  "word_char_shuffle": "Character shuffle"
 }

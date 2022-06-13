@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:projekt_pum/modules/main/training/training.controller.dart';
 import 'package:projekt_pum/modules/main/training/training.dart';
+import 'package:projekt_pum/utils/services/application_localization.service.dart';
+import 'package:projekt_pum/utils/ui/glass_container/glass_container.dart';
 import 'package:widget_view/widget_view.dart';
 
 class TrainingPageView
@@ -13,7 +15,6 @@ class TrainingPageView
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
       body: SafeArea(
         child: Stack(
           children: [
@@ -25,36 +26,31 @@ class TrainingPageView
                   style: TextStyle(
                       color: Colors.white, fontSize: 40, letterSpacing: 1.2),
                 ))),
-            SingleChildScrollView(
+            CustomScrollView(
               physics: BouncingScrollPhysics(),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 140,
-                  ),
-                  ClipRRect(
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            gradient: RadialGradient(
-                              colors: [Color(0xDDffffff), Color(0x88f0fcfd)],
-                              center: Alignment(-1, 1),
-                              radius: 3.8,
-                            ),
-                            borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(50))),
-                        child: Padding(
-                          padding: const EdgeInsets.all(25.0),
-                          child: Column(children: [
-                            for (int i = 0; i < 5; i++) TrainingRow(),
-                          ]),
+              slivers: [
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 140,
+                      ),
+                      Expanded(
+                        child: GlassContainer(
+                          child: Padding(
+                            padding: const EdgeInsets.all(25.0),
+                            child: Column(
+                                children: controller.games.entries
+                                    .map((entry) => TrainingRow(entry))
+                                    .toList()),
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
+                )
+              ],
             ),
             SizedBox(
               height: 100,
@@ -67,9 +63,9 @@ class TrainingPageView
 }
 
 class TrainingRow extends StatelessWidget {
-  const TrainingRow({
-    Key? key,
-  }) : super(key: key);
+  final MapEntry<String, Set<String>> category;
+
+  const TrainingRow(this.category, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +73,7 @@ class TrainingRow extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text("test"),
+            Text(ApplicationLocalizations.of(context)!.translate(category.key)),
           ],
         ),
         SingleChildScrollView(
@@ -88,78 +84,36 @@ class TrainingRow extends StatelessWidget {
               SizedBox(
                 width: 15,
               ),
-              Column(
-                children: [
-                  Material(
-                    clipBehavior: Clip.none,
-                    borderRadius: BorderRadius.circular(50),
-                    elevation: 10,
-                    child: InkWell(
-                      onTap: () => Navigator.of(context)
-                          .pushNamed("/games/reaction/view"),
-                      child: CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 50,
-                      ),
+              ...category.value
+                  .map(
+                    (gameName) => Row(
+                      children: [
+                        Column(
+                          children: [
+                            Material(
+                              clipBehavior: Clip.none,
+                              borderRadius: BorderRadius.circular(50),
+                              elevation: 10,
+                              child: InkWell(
+                                onTap: () => Navigator.of(context).pushNamed(
+                                    "/games/${category.key}/$gameName"),
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.white,
+                                  radius: 50,
+                                ),
+                              ),
+                            ),
+                            Text(ApplicationLocalizations.of(context)!
+                                .translate("${category.key}_$gameName"))
+                          ],
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                      ],
                     ),
-                  ),
-                  Text('Game 1')
-                ],
-              ),
-              SizedBox(
-                width: 15,
-              ),
-              Column(
-                children: [
-                  Material(
-                    clipBehavior: Clip.none,
-                    borderRadius: BorderRadius.circular(50),
-                    elevation: 10,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 50,
-                    ),
-                  ),
-                  Text('Game 1')
-                ],
-              ),
-              SizedBox(
-                width: 15,
-              ),
-              Column(
-                children: [
-                  Material(
-                    clipBehavior: Clip.none,
-                    borderRadius: BorderRadius.circular(50),
-                    elevation: 10,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 50,
-                    ),
-                  ),
-                  Text('Game 1')
-                ],
-              ),
-              SizedBox(
-                width: 15,
-              ),
-              Column(
-                children: [
-                  Material(
-                    clipBehavior: Clip.none,
-                    borderRadius: BorderRadius.circular(50),
-                    elevation: 10,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 50,
-                    ),
-                  ),
-                  Text('Game 1')
-                ],
-              ),
-              SizedBox(
-                width: 15,
-              ),
+                  )
+                  .toList(),
             ],
           ),
         ),

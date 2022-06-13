@@ -1,4 +1,5 @@
 import 'package:firebase_app_check/firebase_app_check.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -31,6 +32,11 @@ Future<void> main() async {
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  static void update(BuildContext context) async {
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state!.update();
+  }
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -48,12 +54,18 @@ class _MyAppState extends State<MyApp> {
     Locale('pl', 'PL')
   ];
 
+  void update() {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "title",
       localizationsDelegates: localizationsDelegates,
       supportedLocales: supportedLocales,
+      initialRoute:
+          FirebaseAuth.instance.currentUser == null ? "/login" : "/home",
       localeResolutionCallback: _localeResolutionCallback,
       locale: locator<LocalStorageService>().contains('language')
           ? Locale(locator<LocalStorageService>().get('language'), '')
@@ -61,8 +73,8 @@ class _MyAppState extends State<MyApp> {
       routes: customRoutes,
       theme: lightTheme,
       darkTheme: darkTheme,
-      themeMode: (locator<LocalStorageService>().contains('darkMode'))
-          ? locator<LocalStorageService>().get('darkTheme')
+      themeMode: (locator<LocalStorageService>().contains('theme'))
+          ? locator<LocalStorageService>().get('theme') == 'dark'
               ? ThemeMode.dark
               : ThemeMode.light
           : ThemeMode.system,
@@ -73,9 +85,12 @@ class _MyAppState extends State<MyApp> {
     Locale? language;
     if (locator<LocalStorageService>().contains('language')) {
       var languageString = locator<LocalStorageService>().get('language');
-      language = supportedLocales.singleWhere(
-          (element) => element.languageCode == languageString,
-          orElse: () => null as Locale);
+      for (var supportedLocale in supportedLocales) {
+        if (supportedLocale.languageCode == languageString) {
+          language = supportedLocale;
+          break;
+        }
+      }
     }
     return language ??
         supportedLocales.singleWhere(

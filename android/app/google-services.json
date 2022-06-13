@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "544468561370-oqamfqvaej2fphvh4rdcpmlkbqlfij1i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.miczek.projektpum",
+            "certificate_hash": "1eb7d7297c9b3c4bf92a6677e8dd40a1c788a8d9"
+          }
+        },
+        {
           "client_id": "544468561370-k1o5qu3q338vpt2b9cer0l4g6bijga54.apps.googleusercontent.com",
           "client_type": 3
         }

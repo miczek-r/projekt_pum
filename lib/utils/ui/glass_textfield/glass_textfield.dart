@@ -12,6 +12,7 @@ class GlassTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final List<TextInputFormatter>? inputFormatter;
   final Function(String)? onSubmited;
+  final TextEditingController? controller;
 
   const GlassTextField(
       {this.icon,
@@ -22,7 +23,8 @@ class GlassTextField extends StatelessWidget {
       this.textAlign = TextAlign.start,
       Key? key,
       this.onChanged,
-      this.onSubmited})
+      this.onSubmited,
+      this.controller})
       : super(key: key);
 
   @override
@@ -44,6 +46,7 @@ class GlassTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
           child: TextField(
+            controller: controller,
             textAlign: textAlign,
             onChanged: onChanged,
             inputFormatters: inputFormatter,

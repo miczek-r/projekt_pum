@@ -27,6 +27,10 @@ class ApplicationLocalizations {
     return true;
   }
 
+  List<String> getSupportedLanguages() {
+    return _AppLocalizationsDelegate.supportedLanguages;
+  }
+
   String translate(String key) => _localizedStrings[key] ?? "";
 }
 
