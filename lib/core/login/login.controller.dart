@@ -6,13 +6,9 @@ import 'package:projekt_pum/core/login/login.dart';
 import 'package:projekt_pum/core/login/login.view.dart';
 import 'package:projekt_pum/core/verify-code/verify-code.dart';
 
-enum Status { Waiting, Error }
-
 class LoginPageController extends State<LoginPage>
     with TickerProviderStateMixin {
   LoginPageController();
-
-  var _status = Status.Error;
 
   String phoneNumber = "";
 

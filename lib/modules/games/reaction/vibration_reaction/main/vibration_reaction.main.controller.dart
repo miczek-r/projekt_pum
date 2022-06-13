@@ -26,11 +26,12 @@ class VibrationReactionMainPageController
 
   void nextPage({result = 0}) {
     setState(() {
-      result = (result / 5).round();
+      result = (result / 5);
       if (selectedIndex == 1) {
         widgetOptions.length = 2;
-        widgetOptions.add(
-            GameResultsPage(result: result, restartFunction: () => restart()));
+        widgetOptions.add(GameResultsPage(
+            result: new GameResult("reaction", "vibration", result),
+            restartFunction: () => restart()));
       }
       selectedIndex++;
     });

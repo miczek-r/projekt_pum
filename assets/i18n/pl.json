@@ -11,10 +11,13 @@
   "light": "Jasny",
   "reaction": "Reakcja",
   "concentration": "Koncentracja",
-  "mathematcis": "Matematyka",
+  "mathematics": "Matematyka",
   "word": "Słownictwo",
   "memory": "Pamięć",
   "reaction_view": "Reakcja na zmiane koloru",
   "reaction_sound": "Reakcja na dźwięk",
+  "reaction_vibration": "Reakcja na wibracje",
+  "reaction_aim_lab": "Test celności",
+  "memory_card_match": "Powiąż karty",
   "word_char_shuffle": "Ułóż słowo"
 }

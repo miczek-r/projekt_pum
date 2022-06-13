@@ -16,5 +16,8 @@
   "memory": "Memory",
   "reaction_view": "Color change reaction",
   "reaction_sound": "Sound signal reaction",
+  "reaction_vibration": "Vibration reaction",
+  "reaction_aim_lab": "Aim test",
+  "memory_card_match": "Card match",
   "word_char_shuffle": "Character shuffle"
 }

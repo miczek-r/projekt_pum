@@ -4,11 +4,9 @@ import 'package:projekt_pum/modules/games/shared/results/game.results.dart';
 import 'package:projekt_pum/utils/ui/glass_button/glass_button.dart';
 import 'package:widget_view/widget_view.dart';
 
-class GameResultsPageView extends StatefulWidgetView<
-    GameResultsPage, GameResultsPageController> {
-  const GameResultsPageView(
-      GameResultsPageController controller,
-      {Key? key})
+class GameResultsPageView
+    extends StatefulWidgetView<GameResultsPage, GameResultsPageController> {
+  const GameResultsPageView(GameResultsPageController controller, {Key? key})
       : super(controller, key: key);
 
   @override
@@ -50,7 +48,8 @@ class GameResultsPageView extends StatefulWidgetView<
                                 SizedBox(
                                   height: 50,
                                 ),
-                                Text("${controller.result.toString()} ms",
+                                Text(
+                                    "${controller.result.score.round().toString()} ms",
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 60)),
                                 SizedBox(

@@ -1,8 +1,5 @@
-import 'dart:ui';
-
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:projekt_pum/modules/games/reaction/view_reaction/main/view_reaction.main.controller.dart';
 import 'package:projekt_pum/modules/games/reaction/view_reaction/main/view_reaction.main.dart';
 import 'package:widget_view/widget_view.dart';
@@ -21,10 +18,10 @@ class ViewReactionMainPageView extends StatefulWidgetView<ViewReactionMainPage,
           transitionBuilder: (Widget child, Animation<double> animation,
               Animation<double> secondaryAnimation) {
             return SharedAxisTransition(
-                child: child,
                 animation: animation,
                 secondaryAnimation: secondaryAnimation,
-                transitionType: SharedAxisTransitionType.horizontal);
+                transitionType: SharedAxisTransitionType.horizontal,
+                child: child);
           },
           child: controller.widgetOptions.elementAt(controller.selectedIndex)),
     );

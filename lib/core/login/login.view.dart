@@ -27,7 +27,7 @@ class LoginPageView extends StatefulWidgetView<LoginPage, LoginPageController> {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(top: size.height * .1),
-                    child: Text(
+                    child: const Text(
                       'Projekt PUM',
                       style: TextStyle(
                         fontSize: 30,
