@@ -31,8 +31,11 @@ class GameResultsPageController extends State<GameResultsPage> {
         .firstWhereOrNull((element) => element.name == result.category);
     if (category == null) {
       category = new Category(result.category, games: []);
+      userResult.categories.add(category);
     }
-    if (category.games
+    category = userResult.categories
+        .firstWhereOrNull((element) => element.name == result.category);
+    if (category!.games
             .firstWhereOrNull((element) => element.name == result.gameName) ==
         null) {
       category.games.add(new Game(result.gameName, results: []));

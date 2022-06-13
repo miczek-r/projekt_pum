@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projekt_pum/modules/games/reaction/aim_lab/game/aim_lab.game.dart';
-import 'package:projekt_pum/modules/games/reaction/aim_lab/main/aim_lab.main.dart';
-import 'package:projekt_pum/modules/games/reaction/aim_lab/main/aim_lab.main.view.dart';
+import 'package:projekt_pum/modules/games/concentration/aim_lab/game/aim_lab.game.dart';
+import 'package:projekt_pum/modules/games/concentration/aim_lab/main/aim_lab.main.dart';
+import 'package:projekt_pum/modules/games/concentration/aim_lab/main/aim_lab.main.view.dart';
 import 'package:projekt_pum/modules/games/shared/informations/game.informations.dart';
 import 'package:projekt_pum/modules/games/shared/results/game.results.dart';
 
@@ -17,7 +17,7 @@ class AimLabMainPageController extends State<AimLabMainPage> {
   void initState() {
     super.initState();
     widgetOptions = <Widget>[
-      GameInformationsPage(goToNextPage: () => nextPage()),
+      GameInformationsPage(goToNextPage: () => nextPage(),gameName: "concentration_aim_lab"),
       AimLabGamePage(goToNextPage: (int result) => nextPage(result: result))
     ];
   }

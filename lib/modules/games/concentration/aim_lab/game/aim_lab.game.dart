@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projekt_pum/modules/games/reaction/aim_lab/game/aim_lab.game.controller.dart';
+import 'package:projekt_pum/modules/games/concentration/aim_lab/game/aim_lab.game.controller.dart';
 
 class AimLabGamePage extends StatefulWidget {
   final Function goToNextPage;

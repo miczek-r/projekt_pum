@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:projekt_pum/modules/main/statistics/statistics-details/statistics-details.dart';
 import 'package:projekt_pum/modules/main/statistics/statistics.controller.dart';
 import 'package:projekt_pum/modules/main/statistics/statistics.dart';
@@ -65,8 +66,9 @@ class StatisticsPageView
   }
 }
 
+
 class StatisticsRow extends StatelessWidget {
-  final MapEntry<String, Set<String>> category;
+  final MapEntry<String, Set<Tuple2<String,IconData>>> category;
 
   const StatisticsRow(this.category, {Key? key}) : super(key: key);
 
@@ -89,7 +91,7 @@ class StatisticsRow extends StatelessWidget {
               ),
               ...category.value
                   .map(
-                    (gameName) => Row(
+                    (gameTuple) => Row(
                       children: [
                         Column(
                           children: [
@@ -103,15 +105,16 @@ class StatisticsRow extends StatelessWidget {
                                         builder: (builder) =>
                                             StatisticsDetailsPage(
                                                 gameName: new Tuple2(
-                                                    category.key, gameName)))),
+                                                    category.key, gameTuple.item1)))),
                                 child: CircleAvatar(
                                   backgroundColor: Colors.white,
                                   radius: 50,
+                                  child:FaIcon(gameTuple.item2)
                                 ),
                               ),
                             ),
                             Text(ApplicationLocalizations.of(context)!
-                                .translate("${category.key}_$gameName"))
+                                .translate("${category.key}_${gameTuple.item1}"))
                           ],
                         ),
                         SizedBox(

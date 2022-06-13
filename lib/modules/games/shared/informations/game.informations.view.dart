@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projekt_pum/modules/games/shared/informations/game.informations.controller.dart';
 import 'package:projekt_pum/modules/games/shared/informations/game.informations.dart';
+import 'package:projekt_pum/utils/services/application_localization.service.dart';
 import 'package:projekt_pum/utils/ui/glass_button/glass_button.dart';
 import 'package:widget_view/widget_view.dart';
 
@@ -35,7 +36,7 @@ class GameInformationsPageView extends StatefulWidgetView<
                       flex: 1,
                       child: Center(
                         child: Text(
-                          "reakcja na obraz".toUpperCase(),
+                          ApplicationLocalizations.of(context)!.translate(controller.gameName).toUpperCase(),
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 30,
@@ -48,7 +49,7 @@ class GameInformationsPageView extends StatefulWidgetView<
                       flex: 6,
                       child: Center(
                         child: Text(
-                          "W tej grze musisz nacisnonć na ekran jak pojawi sie zielone światło",
+                          ApplicationLocalizations.of(context)!.translate("${controller.gameName}_description"),
                           style: TextStyle(color: Colors.white, fontSize: 25),
                           textAlign: TextAlign.center,
                         ),

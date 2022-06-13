@@ -1,7 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:projekt_pum/modules/games/reaction/aim_lab/main/aim_lab.main.controller.dart';
-import 'package:projekt_pum/modules/games/reaction/aim_lab/main/aim_lab.main.dart';
+import 'package:projekt_pum/modules/games/concentration/aim_lab/main/aim_lab.main.controller.dart';
+import 'package:projekt_pum/modules/games/concentration/aim_lab/main/aim_lab.main.dart';
 import 'package:widget_view/widget_view.dart';
 
 class AimLabMainPageView

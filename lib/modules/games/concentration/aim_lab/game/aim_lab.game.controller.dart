@@ -6,8 +6,8 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:projekt_pum/modules/games/reaction/aim_lab/game/aim_lab.game.dart';
-import 'package:projekt_pum/modules/games/reaction/aim_lab/game/aim_lab.game.view.dart';
+import 'package:projekt_pum/modules/games/concentration/aim_lab/game/aim_lab.game.dart';
+import 'package:projekt_pum/modules/games/concentration/aim_lab/game/aim_lab.game.view.dart';
 
 enum GameState { Stop, Waiting, Counting }
 
