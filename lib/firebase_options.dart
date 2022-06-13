@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '544468561370',
     projectId: 'projekt-pum',
     storageBucket: 'projekt-pum.appspot.com',
+    androidClientId: '544468561370-oqamfqvaej2fphvh4rdcpmlkbqlfij1i.apps.googleusercontent.com',
     iosClientId: '544468561370-bj70ldqdvk72vpu1r1ek47giafcrimpd.apps.googleusercontent.com',
     iosBundleId: 'com.miczek.projektpum',
   );
