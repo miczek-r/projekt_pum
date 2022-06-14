@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projekt_pum/utils/services/application_localization.service.dart';
 import 'package:projekt_pum/utils/ui/glass_button/glass_button.dart';
 import 'package:projekt_pum/utils/ui/glass_textfield/glass_textfield.dart';
 import 'package:widget_view/widget_view.dart';
@@ -54,15 +55,15 @@ class WhichIsMoreGamePageView extends StatefulWidgetView<WhichIsMoreGamePage,
                           textAlign: TextAlign.center,
                         ),
                          Row(children: [Expanded(
-                          child: GlassButton("left"
+                          child: GlassButton(ApplicationLocalizations.of(context)!.translate("left")
                             , ()=> controller.checkIfRight(0)),
                         ),
-                        SizedBox(height: 20),Expanded(
-                          child: GlassButton("equal"
+                        SizedBox(width: 20),Expanded(
+                          child: GlassButton(ApplicationLocalizations.of(context)!.translate("equal")
                             , ()=> controller.checkIfRight(1)),
                         ),
-                        SizedBox(height: 20),Expanded(
-                          child: GlassButton("right"
+                        SizedBox(width: 20),Expanded(
+                          child: GlassButton(ApplicationLocalizations.of(context)!.translate("right")
                             , ()=> controller.checkIfRight(2)),
                         ),
                          ]),

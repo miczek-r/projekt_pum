@@ -25,6 +25,14 @@ class WhichIsMoreGamePageController extends State<WhichIsMoreGamePage> {
     startGame();
   }
 
+  @override
+  void dispose() {
+    if(countdownTimer!=null) {
+      countdownTimer!.cancel();
+    }
+    super.dispose();
+  }
+
   void startGame() {
     generateEquations();
     startTimer();

@@ -46,7 +46,7 @@ class GameInformationsPageView extends StatefulWidgetView<
                       ),
                     ),
                     Expanded(
-                      flex: 6,
+                      flex: 5,
                       child: Center(
                         child: Text(
                           ApplicationLocalizations.of(context)!.translate("${controller.gameName}_description"),
@@ -60,9 +60,9 @@ class GameInformationsPageView extends StatefulWidgetView<
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          GlassButton("gramy", () => controller.goToNextPage()),
+                          GlassButton(ApplicationLocalizations.of(context)!.translate("play"), () => controller.goToNextPage()),
                           GlassButton(
-                            "Powrót",
+                            ApplicationLocalizations.of(context)!.translate("back"),
                             () => Navigator.of(context).pop(),
                           ),
                         ],

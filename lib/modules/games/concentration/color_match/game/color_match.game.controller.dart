@@ -39,6 +39,14 @@ class ColorMatchGamePageController extends State<ColorMatchGamePage> {
     startGame();
   }
 
+  @override
+  void dispose() {
+    if(countdownTimer!=null) {
+      countdownTimer!.cancel();
+    }
+    super.dispose();
+  }
+
   void startGame() {
     generateColoredText();
     startTimer();

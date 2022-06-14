@@ -23,6 +23,14 @@ class EquationsGamePageController extends State<EquationsGamePage> {
     super.initState();
     startGame();
   }
+  
+  @override
+  void dispose() {
+    if(countdownTimer!=null) {
+      countdownTimer!.cancel();
+    }
+    super.dispose();
+  }
 
   void startGame() {
     generateEquation();

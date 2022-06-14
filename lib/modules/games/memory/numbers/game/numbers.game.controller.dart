@@ -24,6 +24,14 @@ class NumbersGamePageController extends State<NumbersGamePage> {
     startGame();
   }
 
+  @override
+  void dispose() {
+    if(countdownTimer!=null) {
+      countdownTimer!.cancel();
+    }
+    super.dispose();
+  }
+
   void startGame() {
     setState(() {
     isDisplayingTextField = false;
