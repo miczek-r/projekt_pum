@@ -15,45 +15,48 @@ class AimLabGamePageView
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height - 90;
-    double screenWidth = MediaQuery.of(context).size.width;
-    if (controller.isFirst) {
-      Timer.periodic(Duration(seconds: 1), (timer) async {
-        controller.setState(() {
-          controller.timer = timer.tick;
-          if (controller.timer == controller.PlayTime) {
-            print('finished');
-          }
-        });
-      });
-      controller.generator = ListGenerator(1, 60, Colors.blueAccent,
-          screenHeight, screenWidth, controller.callBackSetState);
-      controller.balls = controller.generator!.getBallList();
-      controller.isFirst = false;
-    }
+
     return Scaffold(
       backgroundColor: Theme.of(context).canvasColor,
       body: SafeArea(
         child: Column(
           children: [
-            Row(
-              children: [
-                Text(
-                    'You hit: ${controller.hits} times, You miss: ${controller.misses} times, Time left: ${30 - controller.timer}'),
-              ],
-            ),
+            SizedBox(
+                height: 50,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                            "${controller.duration.inMinutes}:${controller.duration.inSeconds.remainder(60)} - ${controller.score.round()}",
+                            style: TextStyle(fontSize: 25))
+                      ],
+                    )
+                  ],
+                ),
+              ),
             Expanded(
-              child: GestureDetector(
-                  onTapDown: (e) {
-                    controller.setState(() {
-                      controller.misses++;
-                      print('wrong on tap down!');
-                    });
-                  },
-                  child: Stack(
-                    fit: StackFit.expand,
-                    children: controller.balls,
-                  )),
+              child:  Stack(
+                children: 
+                            [Positioned(
+                            left: controller.targetLeft,
+                            top: controller.targetTop,
+                            child: ClipOval(
+                child: Material(
+                  color: Colors.green,
+                  child: InkWell(
+                    onTapDown: (TapDownDetails e) {
+                      controller.targetHit();
+                    },
+                    child: SizedBox(width: 40, height: 40),
+                  ),
+                ),
+                            )),
+                          ],
+              )
+                  
             ),
           ],
         ),

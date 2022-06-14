@@ -41,6 +41,10 @@ class SettingsPageController extends State<SettingsPage>
     Navigator.of(context).pushNamedAndRemoveUntil("/login", (route) => false);
   }
 
+  userSettings(){
+    Navigator.of(context).pushNamed("/settings/user");
+  }
+
   changeLanguage(String? language) {
     if (language == "system") {
       locator<LocalStorageService>().remove("language");

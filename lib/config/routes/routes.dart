@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:projekt_pum/core/login/login.dart';
 import 'package:projekt_pum/core/settings/settings.dart';
+import 'package:projekt_pum/core/user-settings/user-settings.dart';
 import 'package:projekt_pum/modules/games/concentration/color_match/main/color_match.main.dart';
 import 'package:projekt_pum/modules/games/math/equations/main/equations.main.dart';
 import 'package:projekt_pum/modules/games/math/which_is_more/main/which_is_more.main.dart';
@@ -17,6 +18,7 @@ Map<String, WidgetBuilder> customRoutes = {
   "/home": (context) => Main(),
   "/login": (context) => LoginPage(),
   "/settings": (context) => SettingsPage(),
+  "/settings/user": (context) => UserSettingsPage(),
   "/games/reaction/view": ((context) => ViewReactionMainPage()),
   "/games/reaction/sound": ((context) => SoundReactionMainPage()),
   "/games/reaction/vibration": ((context) => VibrationReactionMainPage()),

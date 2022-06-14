@@ -54,5 +54,9 @@
   "back": "Powrót",
   "high_score": "Najlepszy wynik",
   "no_results": "Brak wyników\n\nStatystyki pojawią się po zagraniu conajmniej 1 gry",
-  "logout": "Wyloguj"
+  "logout": "Wyloguj",
+  "user_settings": "Ustawienia użytkownika",
+  "display_name": "Wyświetlana nazwa",
+  "save": "Zapisz",
+  "attempts": "Prób"
 }

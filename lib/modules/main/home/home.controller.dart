@@ -47,7 +47,7 @@ class HomePageController extends State<HomePage> {
     "reaction_sound": 250,
     "reaction_vibration": 200,
 
-    "concentration_aim_lab": 1000/100,
+    "concentration_aim_lab": 1000/150,
     "concentration_color_match": 1000/100,
 
     "math_equations": 1000/60,
@@ -55,7 +55,7 @@ class HomePageController extends State<HomePage> {
 
     "word_char_shuffle": 1000/20,
 
-    "memory_card_match": 1,
+    "memory_card_match": 100,
     "memory_numbers": 1000/15
   };
 
@@ -83,14 +83,20 @@ class HomePageController extends State<HomePage> {
     }).toList();
   }
 
+  updateUser(){
+    currentUser = FirebaseAuth.instance.currentUser;
+    setState(() {
+      
+    });
+  }
 
   //781573995
 
   List<RawDataSet> rawDataSets() {
     return [
       RawDataSet(
-        title: 'Fashion',
-        color: Color(0xff241f48),
+        title: 'Results',
+        color: Colors.red,
         values: results.entries.map((key) => key.value).toList(),
       ),
       RawDataSet(

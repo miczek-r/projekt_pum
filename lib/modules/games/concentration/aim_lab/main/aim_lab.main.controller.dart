@@ -17,18 +17,18 @@ class AimLabMainPageController extends State<AimLabMainPage> {
   void initState() {
     super.initState();
     widgetOptions = <Widget>[
-      GameInformationsPage(goToNextPage: () => nextPage(),gameName: "concentration_aim_lab"),
+      GameInformationsPage(
+          goToNextPage: () => nextPage(), gameName: "concentration_aim_lab"),
       AimLabGamePage(goToNextPage: (int result) => nextPage(result: result))
     ];
   }
-
-  void nextPage({result = 0}) {
+void nextPage({result = 0}) {
     setState(() {
-      result = (result / 5);
+      result = result * 1.0;
       if (selectedIndex == 1) {
         widgetOptions.length = 2;
         widgetOptions.add(GameResultsPage(
-            result: new GameResult("reaction", "aim", result),
+            result: new GameResult("concentration", "aim_lab", result),
             restartFunction: () => restart()));
       }
       selectedIndex++;

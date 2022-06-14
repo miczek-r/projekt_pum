@@ -54,5 +54,9 @@
   "back": "Go back",
   "high_score": "High score",
   "no_results": "No results\n\nThe statistics will be available after at least one game",
-  "logout": "Logout"
+  "logout": "Logout",
+  "user_settings": "User settings",
+  "display_name": "Display name",
+  "save": "Save",
+  "attempts": "Attempts"
 }

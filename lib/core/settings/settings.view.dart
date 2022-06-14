@@ -68,6 +68,8 @@ class SettingsPageView
                         onChanged: (String? newTheme) =>
                             controller.changeTheme(newTheme)),
                     Expanded(child: Column()),
+                      GlassButton(ApplicationLocalizations.of(context)!.translate("user_settings"), controller.userSettings),
+                      SizedBox(height: 20,),
                       GlassButton(ApplicationLocalizations.of(context)!.translate("logout"), controller.logout),
                       SizedBox(height: 20,),
                     Center(
