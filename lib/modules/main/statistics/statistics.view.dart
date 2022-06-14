@@ -26,7 +26,7 @@ class StatisticsPageView
                 height: 140,
                 child: Center(
                     child: Text(
-                  'Statistics'.toUpperCase(),
+                  ApplicationLocalizations.of(context)!.translate("statistics").toUpperCase(),
                   style: TextStyle(
                       color: Colors.white, fontSize: 40, letterSpacing: 1.2),
                 ))),

@@ -11,7 +11,7 @@ import 'card_match.game.view.dart';
 enum GameState { Stop, Waiting, Counting }
 
 int points = 0;
-int attempts = 30;
+int attempts = 10;
 bool selected = false;
 String selectedImageAssetPath = "";
 int selectedTileIndex = 0;
@@ -22,22 +22,25 @@ class CardMatchGamePageController extends State<CardMatchGamePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    points = 0;
+    attempts = 10;
     super.initState();
     reStart();
+  }
+
+  void checkScore(){
+    if(attempts == 0||points==8){
+      goToNextPage(attempts);
+    }
   }
 
   void reStart() {
     pairs = getPairs();
     pairs.shuffle();
-    points = 0;
-    attempts = 30;
+    attempts = 10;
     visiblePairs = pairs;
     Future.delayed(const Duration(seconds: 4), () {
-// Here you can write your code
       setState(() {
-        print("2 seconds done");
-        // Here you can write your code for open new view
         visiblePairs = getQuestions();
         selected = false;
       });
@@ -49,6 +52,7 @@ class CardMatchGamePageController extends State<CardMatchGamePage> {
 }
 
 class Tile extends StatefulWidget {
+  final Function onPress;
   String imageAssetPath;
 
   int tileIndex;
@@ -56,7 +60,7 @@ class Tile extends StatefulWidget {
   Tile(
       {required this.imageAssetPath,
       required this.parent,
-      required this.tileIndex});
+      required this.tileIndex, required this.onPress});
 
   @override
   State<Tile> createState() => _TileState();
@@ -72,16 +76,8 @@ class _TileState extends State<Tile> {
               pairs[widget.tileIndex].setIsSelected(true);
             });
             if (selectedImageAssetPath != "") {
-              /// testing if the selected tiles are same
               if (selectedImageAssetPath ==
                   pairs[widget.tileIndex].getImageAssetPatch()) {
-                print("add point");
-                points = points + 100;
-                attempts = attempts - 2;
-
-                print(selectedImageAssetPath +
-                    " thishis" +
-                    widget.imageAssetPath);
 
                 TileModel tileModel = new TileModel();
                 print(widget.tileIndex);
@@ -95,22 +91,19 @@ class _TileState extends State<Tile> {
                   setState(() {
                     selected = false;
                   });
+                  points++;
                   selectedImageAssetPath = "";
+            widget.onPress();
                 });
               } else {
-                attempts = attempts - 2;
-
-                print(selectedImageAssetPath +
-                    " thishis " +
-                    pairs[widget.tileIndex].getImageAssetPatch()!);
-                print("wrong choice");
-                print(widget.tileIndex);
-                print(selectedTileIndex);
+                attempts = attempts - 1;
+                  
                 selected = true;
                 Future.delayed(const Duration(seconds: 1), () {
                   this.widget.parent.setState(() {
                     pairs[widget.tileIndex].setIsSelected(false);
                     pairs[selectedTileIndex].setIsSelected(false);
+            widget.onPress();
                   });
                   setState(() {
                     selected = false;
@@ -125,9 +118,6 @@ class _TileState extends State<Tile> {
                     pairs[widget.tileIndex].getImageAssetPatch()!;
                 selectedTileIndex = widget.tileIndex;
               });
-
-              print(selectedImageAssetPath);
-              print(selectedTileIndex);
             }
           }
         },

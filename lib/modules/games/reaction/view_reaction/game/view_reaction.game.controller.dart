@@ -16,7 +16,7 @@ class ViewReactionGamePageController extends State<ViewReactionGamePage> {
   int resultSum = 0;
   int currentAttempt = 0;
 
-  String gameText = "Tap to start";
+  String gameText = "tap_to_start";
   IconData gameIcon = FontAwesomeIcons.clock;
   GameState _gameState = GameState.Stop;
   Color backgroundColor = Colors.blue;
@@ -28,13 +28,21 @@ class ViewReactionGamePageController extends State<ViewReactionGamePage> {
     (_gameState == GameState.Stop) ? startGame() : stopTimer();
   }
 
+  @override
+  void dispose() {
+    if(waitingTimer!=null) {
+      waitingTimer!.cancel();
+    }
+    super.dispose();
+  }
+
   void startGame() {
     setState(() {
       resultTime = 0;
       _gameState = GameState.Waiting;
       backgroundColor = Colors.red;
       gameIcon = FontAwesomeIcons.ellipsis;
-      gameText = "Wait for green";
+      gameText = "wait_for_green";
     });
 
     Random rng = Random();
@@ -48,7 +56,7 @@ class ViewReactionGamePageController extends State<ViewReactionGamePage> {
                   backgroundColor = Colors.green,
                   gameIcon = FontAwesomeIcons.exclamation,
                   _gameState = GameState.Counting,
-                  gameText = "Press",
+                  gameText = "tap",
                 },
               ),
             });
@@ -62,7 +70,7 @@ class ViewReactionGamePageController extends State<ViewReactionGamePage> {
         resultSum += resultTime;
       }
       gameText = (_gameState == GameState.Waiting)
-          ? "Too soon\nTap to continue"
+          ? "too_soon"
           : "${resultTime.toString()}ms";
       backgroundColor = Colors.blue;
       gameIcon = FontAwesomeIcons.clock;

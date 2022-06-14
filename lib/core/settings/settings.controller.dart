@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:projekt_pum/core/settings/settings.dart';
 import 'package:projekt_pum/core/settings/settings.view.dart';
@@ -33,6 +34,15 @@ class SettingsPageController extends State<SettingsPage>
     setState(() {
       packageInfo = info;
     });
+  }
+
+  logout(){
+    FirebaseAuth.instance.signOut();
+    Navigator.of(context).pushNamedAndRemoveUntil("/login", (route) => false);
+  }
+
+  userSettings(){
+    Navigator.of(context).pushNamed("/settings/user");
   }
 
   changeLanguage(String? language) {

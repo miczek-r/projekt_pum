@@ -30,28 +30,38 @@ class HomePageView extends StatefulWidgetView<HomePage, HomePageController> {
                         child: CircleAvatar(
                           backgroundColor: Colors.white,
                           radius: 40,
+                          child: FaIcon(FontAwesomeIcons.userAstronaut, size: 40,)
                         ),
                       ),
                       SizedBox(
                         width: 10,
                       ),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                              controller.currentUser?.displayName ??
-                                  controller.currentUser?.phoneNumber ??
-                                  "",
-                              style: TextStyle(
-                                color: Colors.white,
-                              )),
+                          Row(
+                            children: [
+                              Text(
+                                  controller.currentUser?.displayName ??
+                                      "",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  )),
+                            ],
+                          ),
                           SizedBox(
                             height: 10,
                           ),
-                          Text('LastName',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold))
+                          Row(
+                            children: [
+                              Text(controller.currentUser?.phoneNumber ??
+                                      "",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          )
                         ],
                       ),
                       Expanded(
@@ -59,7 +69,7 @@ class HomePageView extends StatefulWidgetView<HomePage, HomePageController> {
                       ),
                       IconButton(
                           onPressed: () =>
-                              Navigator.of(context).pushNamed("/settings"),
+                              Navigator.of(context).pushNamed("/settings").then((value) => controller.updateUser()),
                           icon: FaIcon(
                             FontAwesomeIcons.cog,
                             color: Colors.white,

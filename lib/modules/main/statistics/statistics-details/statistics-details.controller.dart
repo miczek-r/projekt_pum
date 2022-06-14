@@ -15,6 +15,8 @@ class StatisticsDetailsPageController extends State<StatisticsDetailsPage> {
   final Tuple2<String, String> gameName;
   User? currentUser = FirebaseAuth.instance.currentUser;
 
+  Result? highScore ;
+
   final DataRepository repository = DataRepository();
   double maxValue = 1.0;
 
@@ -101,10 +103,21 @@ class StatisticsDetailsPageController extends State<StatisticsDetailsPage> {
         ...results
       ];
     }
+    if(gameName.item1 == "reaction"){
+    game.results.sort((a, b) => a.score.compareTo(b.score));
+
+    }else{
+
+    game.results.sort((a, b) => b.score.compareTo(a.score));
+    }
+    highScore = game.results.first;
     var temp = List.from(results);
     temp.sort((a, b) => b.score.compareTo(a.score));
     maxValue = (temp[0].score * 1.1).roundToDouble();
-    setState(() {});
+    if(mounted){
+
+      setState(() {});
+    }
   }
 
   @override

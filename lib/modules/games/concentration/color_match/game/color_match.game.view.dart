@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projekt_pum/utils/services/application_localization.service.dart';
 import 'package:projekt_pum/utils/ui/glass_button/glass_button.dart';
 import 'package:projekt_pum/utils/ui/glass_textfield/glass_textfield.dart';
 import 'package:widget_view/widget_view.dart';
@@ -54,10 +55,10 @@ class ColorMatchGamePageView extends StatefulWidgetView<ColorMatchGamePage,
                           textAlign: TextAlign.center,
                         ),
                         Row(children: [Expanded(
-                          child: GlassButton("yes"
+                          child: GlassButton(ApplicationLocalizations.of(context)!.translate("yes")
                             , ()=> controller.checkIfRight(true)),
                         ),SizedBox(width:20),Expanded(
-                          child: GlassButton("no"
+                          child: GlassButton(ApplicationLocalizations.of(context)!.translate("no")
                             , ()=> controller.checkIfRight(false)),
                         )],),
                         SizedBox(height: 20),

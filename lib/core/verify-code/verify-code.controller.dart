@@ -29,17 +29,10 @@ class VerifyCodePageController extends State<VerifyCodePage> {
     await _auth.verifyPhoneNumber(
       phoneNumber: phoneNumber,
       verificationCompleted: (PhoneAuthCredential credential) async {
-        print(credential);
+        
       },
       verificationFailed: (FirebaseAuthException e) {
-        print("  ");
-        print("  ");
-        print("  ");
-        print("  ");
-        print("  ");
-        print("  ");
-        print("  ");
-        print(e.message);
+        Navigator.of(context).pushNamedAndRemoveUntil("/login", (route) => false);
 
       },
       codeSent: (String verificationId, int? resendToken) async {

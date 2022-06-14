@@ -24,7 +24,7 @@ class TrainingPageView
                 height: 140,
                 child: Center(
                     child: Text(
-                  'Training'.toUpperCase(),
+                      ApplicationLocalizations.of(context)!.translate("training").toUpperCase(),
                   style: TextStyle(
                       color: Colors.white, fontSize: 40, letterSpacing: 1.2),
                 ))),

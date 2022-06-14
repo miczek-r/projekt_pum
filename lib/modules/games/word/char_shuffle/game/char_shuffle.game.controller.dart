@@ -36,6 +36,14 @@ class CharShuffleGamePageController extends State<CharShuffleGamePage> {
     });
   }
 
+  @override
+  void dispose() {
+    if(countdownTimer!=null) {
+      countdownTimer!.cancel();
+    }
+    super.dispose();
+  }
+
   Future loadData() async {
     String wordsInOneString =
         await rootBundle.loadString("assets/data/${ApplicationLocalizations.of(context)!.locale.languageCode}_words.txt");
