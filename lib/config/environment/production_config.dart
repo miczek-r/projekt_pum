@@ -5,10 +5,10 @@ class ProductionConfig implements BaseConfig {
   String get appCenterSecret => throw UnimplementedError();
 
   @override
-  bool get reportEvents => false;
+  bool get reportEvents => true;
 
   @override
-  bool get trackEvents => false;
+  bool get trackEvents => true;
 
   @override
   bool get useHttps => false;
