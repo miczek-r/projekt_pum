@@ -21,7 +21,7 @@ class VibrationReactionGamePageController
   int resultSum = 0;
   int currentAttempt = 0;
 
-  String gameText = "Tap to start";
+  String gameText = "tap_to_start";
   IconData gameIcon = FontAwesomeIcons.clock;
   GameState _gameState = GameState.Stop;
   Color backgroundColor = Colors.blue;
@@ -34,6 +34,14 @@ class VibrationReactionGamePageController
     super.initState();
   }
 
+  @override
+  void dispose() {
+    if(waitingTimer!=null) {
+      waitingTimer!.cancel();
+    }
+    super.dispose();
+  }
+
   void gameControll() {
     (_gameState == GameState.Stop) ? startGame() : stopTimer();
   }
@@ -43,7 +51,7 @@ class VibrationReactionGamePageController
       resultTime = 0;
       _gameState = GameState.Waiting;
       gameIcon = FontAwesomeIcons.ellipsis;
-      gameText = "Tap when you feel vibration";
+      gameText = "tap_on_vibration";
     });
     Random rng = Random();
     var waitingTime = rng.nextInt(2000) + 1000;
@@ -69,7 +77,7 @@ class VibrationReactionGamePageController
         resultSum += resultTime;
       }
       gameText = (_gameState == GameState.Waiting)
-          ? "Too soon\nTap to continue"
+          ? "too_soon"
           : "${resultTime.toString()}ms";
       gameIcon = FontAwesomeIcons.clock;
       _gameState = GameState.Stop;

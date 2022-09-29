@@ -18,7 +18,7 @@ class CharShuffleMainPageController extends State<CharShuffleMainPage> {
   void initState() {
     super.initState();
     widgetOptions = <Widget>[
-      GameInformationsPage(goToNextPage: () => nextPage()),
+      GameInformationsPage(goToNextPage: () => nextPage(), gameName: "word_char_shuffle"),
       CharShuffleGamePage(
           goToNextPage: (int result) => nextPage(result: result))
     ];

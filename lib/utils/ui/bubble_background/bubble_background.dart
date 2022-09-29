@@ -23,6 +23,19 @@ class _BubbleBackgroundState extends State<BubbleBackground>
   late Animation<double> animation3;
   late Animation<double> animation4;
 
+  Timer? backgroundTimer;
+
+
+  @override
+  void dispose() {
+    if(backgroundTimer!=null) {
+      backgroundTimer!.cancel();
+    }
+    controller1.dispose();
+    controller2.dispose();
+    super.dispose();
+  }
+
   @override
   void initState() {
     super.initState();
@@ -87,18 +100,11 @@ class _BubbleBackgroundState extends State<BubbleBackground>
         setState(() {});
       });
 
-    Timer(Duration(milliseconds: 2500), () {
+    backgroundTimer = Timer(Duration(milliseconds: 2500), () {
       controller1.forward();
     });
 
     controller2.forward();
-  }
-
-  @override
-  void dispose() {
-    controller1.dispose();
-    controller2.dispose();
-    super.dispose();
   }
 
   @override

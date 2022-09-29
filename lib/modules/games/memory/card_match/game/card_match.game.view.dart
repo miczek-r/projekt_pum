@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:projekt_pum/utils/services/application_localization.service.dart';
 import 'package:widget_view/widget_view.dart';
 
 import 'card_match.game.controller.dart';
@@ -20,12 +21,10 @@ class CardMatchGamePageView
           child: SafeArea(
               child: Column(
             children: <Widget>[
-              Text("$points", style: TextStyle(fontSize: 24)),
-              Text("Points"),
               SizedBox(
                 height: 20,
               ),
-              Text("Attempts: $attempts"),
+              Text("${ApplicationLocalizations.of(context)!.translate("attempts")}: $attempts", style: TextStyle(color: Colors.black)),
               SizedBox(
                 height: 20,
               ),
@@ -38,6 +37,7 @@ class CardMatchGamePageView
                       imageAssetPath: visiblePairs[index].getImageAssetPatch()!,
                       parent: controller,
                       tileIndex: index,
+                      onPress: ()=> controller.checkScore()
                     );
                   }))
             ],

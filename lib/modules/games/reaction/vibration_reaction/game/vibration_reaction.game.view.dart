@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:projekt_pum/modules/games/reaction/vibration_reaction/game/vibration_reaction.game.controller.dart';
+import 'package:projekt_pum/utils/services/application_localization.service.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:widget_view/widget_view.dart';
 
@@ -58,7 +59,10 @@ class VibrationReactionGamePageView extends StatefulWidgetView<
                             color: Colors.white, size: 40),
                         SizedBox(height: 20),
                         Text(
-                          controller.gameText,
+                          (controller.gameText.contains("ms"))
+                              ? controller.gameText
+                              : ApplicationLocalizations.of(context)!
+                                  .translate(controller.gameText),
                           style: TextStyle(color: Colors.white, fontSize: 30),
                           textAlign: TextAlign.center,
                         ),

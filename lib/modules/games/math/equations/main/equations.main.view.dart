@@ -1,12 +1,16 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:projekt_pum/modules/games/reaction/aim_lab/main/aim_lab.main.controller.dart';
-import 'package:projekt_pum/modules/games/reaction/aim_lab/main/aim_lab.main.dart';
+import 'package:projekt_pum/modules/games/reaction/sound_reaction/main/sound_reaction.main.controller.dart';
+import 'package:projekt_pum/modules/games/reaction/sound_reaction/main/sound_reaction.main.dart';
 import 'package:widget_view/widget_view.dart';
 
-class AimLabMainPageView
-    extends StatefulWidgetView<AimLabMainPage, AimLabMainPageController> {
-  const AimLabMainPageView(AimLabMainPageController controller, {Key? key})
+import 'equations.main.controller.dart';
+import 'equations.main.dart';
+
+class EquationsMainPageView extends StatefulWidgetView<
+    EquationsMainPage, EquationsMainPageController> {
+  const EquationsMainPageView(EquationsMainPageController controller,
+      {Key? key})
       : super(controller, key: key);
 
   @override

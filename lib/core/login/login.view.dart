@@ -52,6 +52,7 @@ class LoginPageView extends StatefulWidgetView<LoginPage, LoginPageController> {
                             FilteringTextInputFormatter.allow(
                                 RegExp(r'^[0-9]{1,9}')),
                           ],
+                          keyboardType: TextInputType.phone,
                         ),
                         const SizedBox(
                           height: 50,

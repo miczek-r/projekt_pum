@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:projekt_pum/modules/games/reaction/sound_reaction/game/sound_reaction.game.controller.dart';
 import 'package:projekt_pum/modules/games/reaction/sound_reaction/game/sound_reaction.game.dart';
+import 'package:projekt_pum/utils/services/application_localization.service.dart';
 import 'package:projekt_pum/utils/ui/glass_button/glass_button.dart';
 import 'package:projekt_pum/utils/ui/glass_textfield/glass_textfield.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -62,7 +63,7 @@ class CharShuffleGamePageView extends StatefulWidgetView<CharShuffleGamePage,
                           onChanged: controller.checkIfProper,
                           textAlign: TextAlign.center,
                         ),
-                        GlassButton("Surrender", controller.changeWord),
+                        GlassButton(ApplicationLocalizations.of(context)!.translate("surrender"), controller.changeWord),
                         SizedBox(height: 20),
                       ],
                     ),

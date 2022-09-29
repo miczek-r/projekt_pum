@@ -72,16 +72,21 @@ class VerifyCodePageView
                                                 8,
                                         child: GlassTextField(
                                           onChanged: (value) {
-                                            controller.setState(() {
-                                              controller.verificationCode =
-                                                  controller.verificationCode
-                                                      .replaceFirst(RegExp('.'),
-                                                          value, i);
-                                            });
                                             if (value.length == 1) {
+                                              controller.setState(() {
+                                                controller.verificationCode +=
+                                                    value;
+                                              });
                                               FocusScope.of(context)
                                                   .nextFocus();
                                             } else if (i > 0 && value.isEmpty) {
+                                              controller.verificationCode
+                                                  .substring(
+                                                      0,
+                                                      controller
+                                                              .verificationCode
+                                                              .length -
+                                                          1);
                                               FocusScope.of(context)
                                                   .previousFocus();
                                             }
@@ -92,6 +97,7 @@ class VerifyCodePageView
                                             FilteringTextInputFormatter
                                                 .digitsOnly
                                           ],
+                                          keyboardType: TextInputType.number,
                                         ),
                                       )
                                   ],

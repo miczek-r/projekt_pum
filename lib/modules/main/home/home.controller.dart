@@ -29,7 +29,7 @@ class HomePageController extends State<HomePage> {
   final categories = {
     0: "reaction",
     1: "concentration",
-    2: "mathematics",
+    2: "math",
     3: "word",
     4: "memory"
   };
@@ -37,9 +37,26 @@ class HomePageController extends State<HomePage> {
   Map<String, double> results = {
     "reaction": 1,
     "concentration": 1,
-    "mathematics": 1,
+    "math": 1,
     "word": 1,
     "memory": 1
+  };
+
+  final Map<String, double> gameScoreMultiplier={
+    "reaction_view": 150,
+    "reaction_sound": 250,
+    "reaction_vibration": 200,
+
+    "concentration_aim_lab": 1000/150,
+    "concentration_color_match": 1000/100,
+
+    "math_equations": 1000/60,
+    "math_which_is_more": 1000/60,
+
+    "word_char_shuffle": 1000/20,
+
+    "memory_card_match": 100,
+    "memory_numbers": 1000/15
   };
 
   String getTitle(int index) {
@@ -66,17 +83,26 @@ class HomePageController extends State<HomePage> {
     }).toList();
   }
 
+  updateUser(){
+    currentUser = FirebaseAuth.instance.currentUser;
+    setState(() {
+      
+    });
+  }
+
+  //781573995
+
   List<RawDataSet> rawDataSets() {
     return [
       RawDataSet(
-        title: 'Fashion',
-        color: Color(0xff241f48),
+        title: 'Results',
+        color: Colors.red,
         values: results.entries.map((key) => key.value).toList(),
       ),
       RawDataSet(
         title: 'Hidden',
         color: Colors.transparent,
-        values: [1100.0, 0, 0, 0, 0],
+        values: [1100.0, 1.0, 1.0, 1.0, 1.0],
       ),
     ];
   }
@@ -91,13 +117,22 @@ class HomePageController extends State<HomePage> {
         category.games.forEach((element) {
           if (element.results.length > 0) {
             element.results.sort((a, b) => b.date.compareTo(a.date));
-            sum += element.results.first.score;
+            double gameResult=1;
+            if(category.name=="reaction"){
+              gameResult = 1000/element.results.first.score * gameScoreMultiplier["${category.name}_${element.name}"]!;
+            }else{
+              gameResult = element.results.first.score * gameScoreMultiplier["${category.name}_${element.name}"]!;
+            }
+            sum += gameResult>1000?1000:gameResult;
           }
         });
         sum = sum / category.games.length;
         results[category.name] = sum;
       });
+      if(mounted){
+
       setState(() {});
+      }
     }
   }
 

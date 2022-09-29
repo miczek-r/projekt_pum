@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projekt_pum/core/settings/settings.controller.dart';
 import 'package:projekt_pum/core/settings/settings.dart';
 import 'package:projekt_pum/utils/services/application_localization.service.dart';
+import 'package:projekt_pum/utils/ui/glass_button/glass_button.dart';
 import 'package:projekt_pum/utils/ui/glass_container/glass_container.dart';
 import 'package:widget_view/widget_view.dart';
 
@@ -67,6 +68,10 @@ class SettingsPageView
                         onChanged: (String? newTheme) =>
                             controller.changeTheme(newTheme)),
                     Expanded(child: Column()),
+                      GlassButton(ApplicationLocalizations.of(context)!.translate("user_settings"), controller.userSettings),
+                      SizedBox(height: 20,),
+                      GlassButton(ApplicationLocalizations.of(context)!.translate("logout"), controller.logout),
+                      SizedBox(height: 20,),
                     Center(
                       child: Text(
                           "v${controller.packageInfo.version}+${controller.packageInfo.buildNumber}"),
